@@ -18,15 +18,15 @@ spring:
           - id: user-service
             uri: lb://user-service
             predicates:
-              - Path=/users/**
+              - Path=/v1/users/**
           - id: car-service
             uri: lb://car-service
             predicates:
-              - Path=/cars/**
+              - Path=/v1/cars/**
           - id: bike-service
             uri: lb://bike-service
             predicates:
-              - Path=/bikes/**
+              - Path=/v1/bikes/**
       discovery:
         locator:
           enabled: true
