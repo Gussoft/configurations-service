@@ -18,12 +18,18 @@ spring:
         - id: user-service
           uri: lb://user-service
           predicates:
-            - Path=/v1/users/**
+            - Path=/users/**
+          filters:
+            - RewritePath=/users, /v1/users
         - id: car-service
           uri: lb://car-service
           predicates:
-            - Path=/v1/cars/**
+            - Path=/cars/**
+          filters:
+            - RewritePath=/cars, /v1/cars
         - id: bike-service
           uri: lb://bike-service
           predicates:
-            - Path=/v1/bikes/**
+            - Path=/bikes/**
+          filters:
+            - RewritePath=/bikes, /v1/bikes
