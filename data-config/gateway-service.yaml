@@ -16,20 +16,20 @@ spring:
     gateway:
       routes:
         - id: user-service
-          uri: lb://user-service
+          uri: lb://USER-SERVICE
           predicates:
-            - Path=/users/**
+            - Path=/v1/users/**
           filters:
             - RewritePath=/users, /v1/users
         - id: car-service
-          uri: lb://car-service
+          uri: lb://CAR-SERVICE
           predicates:
-            - Path=/cars/**
+            - Path=/v1/cars/**
           filters:
             - RewritePath=/cars, /v1/cars
         - id: bike-service
-          uri: lb://bike-service
+          uri: lb://BIKE-SERVICE
           predicates:
-            - Path=/bikes/**
+            - Path=/v1/bikes/**
           filters:
             - RewritePath=/bikes, /v1/bikes
