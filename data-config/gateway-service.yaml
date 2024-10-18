@@ -1,5 +1,6 @@
 server:
   port: 8080
+
 eureka:
   instance:
 #    instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
@@ -13,20 +14,16 @@ eureka:
 spring:
   cloud:
     gateway:
-      mvc:
-        routes:
-          - id: user-service
-            uri: lb://user-service
-            predicates:
-              - Path=/v1/users/**
-          - id: car-service
-            uri: lb://car-service
-            predicates:
-              - Path=/v1/cars/**
-          - id: bike-service
-            uri: lb://bike-service
-            predicates:
-              - Path=/v1/bikes/**
-      discovery:
-        locator:
-          enabled: true
+      routes:
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/v1/users/**
+        - id: car-service
+          uri: lb://car-service
+          predicates:
+            - Path=/v1/cars/**
+        - id: bike-service
+          uri: lb://bike-service
+          predicates:
+            - Path=/v1/bikes/**
