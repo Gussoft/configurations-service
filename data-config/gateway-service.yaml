@@ -14,22 +14,19 @@ eureka:
 spring:
   cloud:
     gateway:
+      discovery:
+        locator:
+          enabled: true
       routes:
         - id: user-service
           uri: lb://USER-SERVICE
           predicates:
             - Path=/v1/users/**
-          filters:
-            - RewritePath=/users, /v1/users
         - id: car-service
           uri: lb://CAR-SERVICE
           predicates:
             - Path=/v1/cars/**
-          filters:
-            - RewritePath=/cars, /v1/cars
         - id: bike-service
           uri: lb://BIKE-SERVICE
           predicates:
             - Path=/v1/bikes/**
-          filters:
-            - RewritePath=/bikes, /v1/bikes
