@@ -13,19 +13,20 @@ eureka:
 spring:
   cloud:
     gateway:
+      mvc:
+        routes:
+          - id: user-service
+            uri: lb://user-service
+            predicates:
+              - Path=/users/**
+          - id: car-service
+            uri: lb://car-service
+            predicates:
+              - Path=/cars/**
+          - id: bike-service
+            uri: lb://bike-service
+            predicates:
+              - Path=/bikes/**
       discovery:
         locator:
           enabled: true
-      routes:
-        - id: user-service
-          uri: lb://user-service
-          predicates:
-            - Path=/users/**
-        - id: cars-service
-          uri: lb://cars-service
-          predicates:
-            - Path=/cars/**
-        - id: bike-service
-          uri: lb://bike-service
-          predicates:
-            - Path=/bikes/**
