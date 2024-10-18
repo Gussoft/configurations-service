@@ -1,0 +1,31 @@
+server:
+  port: 8080
+eureka:
+  instance:
+#    instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+    hostname: localhost
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/v1/users/**
+        - id: cars-service
+          uri: lb://cars-service
+          predicates:
+            - Path=/v1/cars/**
+        - id: bike-service
+          uri: lb://bike-service
+          predicates:
+            - Path=/v1/bikes/**
