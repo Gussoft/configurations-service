@@ -17,16 +17,17 @@ spring:
       discovery:
         locator:
           enabled: true
-      routes:
-        - id: user-service
-          uri: lb://USER-SERVICE
-          predicates:
-            - Path=/v1/users/**
-        - id: car-service
-          uri: lb://CAR-SERVICE
-          predicates:
-            - Path=/v1/cars/**
-        - id: bike-service
-          uri: lb://BIKE-SERVICE
-          predicates:
-            - Path=/v1/bikes/**
+      mvc:
+        routes:
+          - id: user-service
+            uri: lb://USER-SERVICE
+            predicates:
+              - Path=/v1/users/**
+          - id: car-service
+            uri: lb://CAR-SERVICE
+            predicates:
+              - Path=/v1/cars/**
+          - id: bike-service
+            uri: lb://BIKE-SERVICE
+            predicates:
+              - Path=/v1/bikes/**
