@@ -17,6 +17,7 @@ spring:
       discovery:
         locator:
           enabled: true
+          lower-case-service-id: true 
       mvc:
         routes:
           - id: user-service
