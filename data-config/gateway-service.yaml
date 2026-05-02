@@ -32,6 +32,6 @@ spring:
             predicates:
               - Path=/v1/bikes/**
           - id: amigos-peludos
-            uri: lb://AMIGOS-PELUDOS
+            uri: lb://amigos-peludos
             predicates:
               - Path=/api/adopcion/**, /api/dueno/**, /api/veterinario/**, /api/mascota/**, /auth/**
