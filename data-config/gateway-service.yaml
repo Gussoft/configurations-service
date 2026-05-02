@@ -35,7 +35,7 @@ spring:
             uri: lb://AMIGOS-PELUDOS
             predicates:
               - Path=/api/adopcion/**
-              - Path=/api/auth/**
               - Path=/api/dueno/**
               - Path=/api/veterinario/**
               - Path=/api/mascota/**
+              - Path=/auth/**
